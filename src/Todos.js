@@ -1,6 +1,6 @@
 import React from 'react';
 //Todos is name of the component
-const Todos = ({todos}) =>{
+const Todos = ({todos,deleteTodo}) =>{
 
     //array which checks todos are there are not using ternary operator
     //to cycle through each todo we use map function coz its
@@ -11,12 +11,12 @@ const Todos = ({todos}) =>{
         todos.map(todo => {
             return(
                 <div className="collection-item" key={todo.id}>
-                  <span>{todo.content}</span>  
+                  <span onClick={() => {deleteTodo(todo.id)}}>{todo.content}</span>  
                 </div>
             )
         })
     ) : (
-        <p className="center" blue-text>You have no todo's left</p>
+        <p className="center" blue-text="true">You have no todo's left</p>
     )
     return (
         <div className="todos collection">
